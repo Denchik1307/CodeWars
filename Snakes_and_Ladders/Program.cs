@@ -1,8 +1,13 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
+
+
 bool isPlayer1 = true;
 int valOne = 0;
 int valTwo = 0;
 // test
+
+File.Delete("name.md");
 for (var i = 0; i < 150; i++)
 {
     Random ran = new Random();
@@ -10,12 +15,10 @@ for (var i = 0; i < 150; i++)
     int var2 = ran.Next(1, 6);
     string result = play(var1, var2);
     Console.WriteLine(result);
+    if(result.Contains("Wins!"))break;
 }
 
-
 // decision
-
-
 string play(int die1, int die2)
 {
     int player = isPlayer1 ? 1 : 2;
