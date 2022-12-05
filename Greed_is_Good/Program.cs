@@ -1,17 +1,33 @@
 ﻿
 // test
-Console.WriteLine(SpinWords("Hey wollef sroirraw"));
+Console.WriteLine(Score(new int[] { 5, 5, 5, 5, 1 }));
 
 
 // decision
-string SpinWords(string sentence)
+int Score(int[] dice)
 {
-    string[] tmp = sentence.Split(" ");
-    int index =0;
-    foreach (string item in tmp)
+    int res = 0;
+    for (int i = 1; i <= 6; i++)
     {
-        if(item.Length>4)tmp[index] = new string(item.Reverse().ToArray());
-        index++;
+        int count = 0;
+        foreach (int item in dice)
+        {
+            if (i == item) count++;
+        }
+        if (count > 2)
+        {
+            res += (i == 1) ? 1000 : i * 100;
+            if (count == 3)
+            {
+                continue;
+            }
+            else
+            {
+                count -= 3;
+            }
+        }
+        if (i == 1) res += 100 * count;
+        if (i == 5) res += 50 * count;
     }
-    return String.Join(" ",tmp);
+    return res;
 }
