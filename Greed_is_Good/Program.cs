@@ -16,7 +16,7 @@ int Score(int[] dice)
         }
         if (count > 2)
         {
-            res += (i == 1) ? 1000 : i * 10;
+            res += (i == 1) ? 1000 : i * 100;
             if (count == 3)
             {
                 continue;
