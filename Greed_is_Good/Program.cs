@@ -1,6 +1,6 @@
 ﻿
 // test
-Console.WriteLine(Score(new int[] {1, 4, 1, 5, 4}));
+Console.WriteLine(Score(new int[] { 5, 5, 5, 5, 1 }));
 
 
 // decision
@@ -16,32 +16,18 @@ int Score(int[] dice)
         }
         if (count > 2)
         {
-            if (i == 1)
-            {
-                res += 1000;
-            }
-            else
-            {
-                res += i * 100;
-            }
-            if(count== 3)
+            res += (i == 1) ? 1000 : i * 10;
+            if (count == 3)
             {
                 continue;
             }
             else
             {
-                count -=3;
+                count -= 3;
             }
         }
-        if (i == 1)
-        {
-            res += 100 * count;
-        }
-        if (i == 5)
-        {
-            res += 50 * count;
-        }
+        if (i == 1) res += 100 * count;
+        if (i == 5) res += 50 * count;
     }
-
     return res;
 }
